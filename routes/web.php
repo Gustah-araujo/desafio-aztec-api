@@ -14,7 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+    $documentation = 'default';
+
+    return view('vendor.l5-swagger.index', compact('documentation'));
 });
 
 Route::get('/dashboard', function () {
