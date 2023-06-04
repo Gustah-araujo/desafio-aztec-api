@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TokenController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -18,5 +19,16 @@ use OpenApi\Annotations as OA;
 Route::post('/token', [TokenController::class, 'issue_token']);
 
 Route::middleware('token.auth')->group(function() {
+
+    // Product Routes
+    Route::controller(ProductController::class)->group( function() {
+
+        Route::get('/products', 'index');
+        Route::get('/products/{id}', 'show');
+        Route::post('/products', 'store');
+        Route::patch('/products/{id}', 'update');
+        Route::delete('/products/{id}', 'destroy');
+
+    });
 
 });

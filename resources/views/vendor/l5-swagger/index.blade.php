@@ -24,6 +24,10 @@
       margin:0;
       background: #fafafa;
     }
+
+    .swagger-ui .highlight-code>.microlight {
+        min-height: 1px !important
+    }
     </style>
 </head>
 
