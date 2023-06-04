@@ -30,7 +30,6 @@ class Product extends Model
      *     type="integer",
      *     example="1"
      * )
-     * @var int
      */
 
     public $id;
@@ -41,7 +40,6 @@ class Product extends Model
      *     type="string",
      *     example="Banana"
      * )
-     * @var int
      */
 
     public $name;
