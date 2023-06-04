@@ -6,10 +6,45 @@ use App\Models\Token;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use OpenApi\Annotations as OA;
 
+/**
+ * @OA\Info(
+ *   title="Aztec Desafio API",
+ *   version="1.0.0",
+ *   @OA\Contact(
+ *     email="support@example.com"
+ *   )
+ * )
+ */
 
 class TokenController extends Controller
 {
+
+
+    /**
+     * @OA\Post(
+     *     path="/token",
+     *     summary="Generate Authentication Token",
+     *     description="Generate a new Authentication Token to access the API.",
+     *     operationId="getToken",
+     *     tags={"Authentication"},
+     *     @OA\Response(
+     *         response=200,
+     *         description="Successful operation",
+     *     @OA\JsonContent(
+     *         type="object",
+     *         @OA\Property(property="token", type="string"),
+     *         @OA\Property(property="expired_at", type="date", example="01-01-2023")
+     *              )
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="User not found"
+     *     )
+     * )
+    */
 
     public function issue_token(Request $request)
     {

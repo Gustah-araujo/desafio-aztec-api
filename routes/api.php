@@ -3,7 +3,7 @@
 use App\Http\Controllers\TokenController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use OpenApi\Annotations as OA;
 /*
 |--------------------------------------------------------------------------
 | API Routes
