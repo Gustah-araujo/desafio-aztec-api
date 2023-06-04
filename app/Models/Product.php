@@ -26,23 +26,18 @@ class Product extends Model
 
     /**
      * @OA\Property(
+     *     property="id",
      *     description="The Products's unique identifier",
      *     type="integer",
      *     example="1"
      * )
-     * @var int
-     */
 
-    public $id;
-
-    /**
      * @OA\Property(
+     *     property="name",
      *     description="The Products's name",
      *     type="string",
      *     example="Banana"
      * )
-     * @var int
      */
 
-    public $name;
 }
