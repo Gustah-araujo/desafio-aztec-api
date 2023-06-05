@@ -1,64 +1,71 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Desafio Aztec API
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Desafio de desenvolvimento de API realizado para o processo seletivo da Aztec Soluções Digitais. Desenvolvido utilizando Laravel Framework
 
-## About Laravel
+### Atenção
+A **.env.example** deste projeto foi feita tendo em mente o uso do laradock que será descrito abaixo. Caso deseje executar esse projeto sem a utilização do laradock, terá que atualizar a sua **.env**.
+## Instalação
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Clone o repositório
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+`https://github.com/Gustah-araujo/desafio-aztec-api.git`
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Dentro da pasta do projeto, renomeie o arquivo **.env.example** para **.env**
 
-## Learning Laravel
+`cp .env.example .env`
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Importe o laradock
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+`git clone https://github.com/laradock/laradock.git`
 
-## Laravel Sponsors
+Renomeie a **.env.example** dentro da pasta /laradock para **.env**
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+`cd laradock`
 
-### Premium Partners
+`cp .env.example .env`
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+Execute os contêiners necessários para a execução da aplicação
 
-## Contributing
+`docker compose up -d nginx workspace mysql`
+ou
+`docker-compose up -d nginx workspace mysql`
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Acesse o container da aplicação
 
-## Code of Conduct
+`docker compose exec workspace bash`
+ou
+`docker-compose exec workspace bash`
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Execute todos os comandos necessários para o setup inicial da aplicação
 
-## Security Vulnerabilities
+`php artisan key:generate`
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+`composer install`
 
-## License
+`npm install`
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+`npm run dev`
+
+Pronto, a aplicação está pronta para ser utilizada.
+
+## Utilização
+
+Após instalação, a documentação da API pode ser acessada na [página raíz](http://localhost) da aplicação em seu navegador
+
+Dentro deste repositório estão disponíveis um arquivo JSON com a [coleção Postman](/workspace.postman_globals.json) e um arquivo com as [variáveis globais](/workspace.postman_globals.json) usadas pela aplicação no Postman.
+
+### Autenticação
+
+Para executar qualquer rota é obrigatório incluir nas Headers da requisição o Bearer Token que pode ser gerado pela própria autenticação (**Não se preocupe**, a coleção do Postman atualiza a variável com o token automaticamente toda vez que disparar uma nova requisição para a rota de gerar Token)
+
+### Testes
+
+Para executar os testes automáticos desenvolvidos, siga o passo a passo abaixo:
+
+Dentro da pasta /laradock, com os contâiners subidos (Se tiver dúvida, rever processo de Instalação citado acima), execute o comando a seguir para acessar o contâiner da aplicação:
+
+`docker compose exec workspace bash` ou `docker-compose exec workspace bash`
+
+Dentro do contâiner, execute os testes
+
+`php artisan test`
