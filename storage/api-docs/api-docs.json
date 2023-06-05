@@ -8,6 +8,38 @@
         "version": "1.0.0"
     },
     "paths": {
+        "/token": {
+            "post": {
+                "tags": [
+                    "Authentication"
+                ],
+                "summary": "Generate Authentication Token",
+                "description": "Generate a new Authentication Token to access the API.",
+                "operationId": "getToken",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "token": {
+                                            "type": "string"
+                                        },
+                                        "expired_at": {
+                                            "type": "string",
+                                            "format": "date",
+                                            "example": "01-01-2023"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/products": {
             "get": {
                 "tags": [
@@ -746,38 +778,6 @@
                                                 },
                                                 "type": "object"
                                             }
-                                        }
-                                    },
-                                    "type": "object"
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        "/token": {
-            "post": {
-                "tags": [
-                    "Authentication"
-                ],
-                "summary": "Generate Authentication Token",
-                "description": "Generate a new Authentication Token to access the API.",
-                "operationId": "getToken",
-                "responses": {
-                    "200": {
-                        "description": "Successful operation",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "properties": {
-                                        "token": {
-                                            "type": "string"
-                                        },
-                                        "expired_at": {
-                                            "type": "string",
-                                            "format": "date",
-                                            "example": "01-01-2023"
                                         }
                                     },
                                     "type": "object"

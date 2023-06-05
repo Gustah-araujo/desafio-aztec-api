@@ -19,9 +19,3 @@ Route::get('/', function () {
 
     return view('vendor.l5-swagger.index', compact('documentation'));
 });
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
-require __DIR__.'/auth.php';

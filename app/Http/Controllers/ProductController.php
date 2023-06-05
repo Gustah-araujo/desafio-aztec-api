@@ -264,7 +264,7 @@ class ProductController extends Controller
 
         if ($product) {
 
-            $product->destroy();
+            $product->delete();
 
             return response()->json([], 204);
 

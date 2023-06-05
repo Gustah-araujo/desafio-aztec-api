@@ -329,7 +329,7 @@ class ShoppingListController extends Controller
 
         if ($shopping_list) {
 
-            $shopping_list = $shopping_list->destroy();
+            $shopping_list = $shopping_list->delete();
             return response()->json([], 204);
         } else {
             return response()->json([
