@@ -1,6 +1,6 @@
 # Desafio Aztec API
 
-Desafio de desenvolvimento de API realizado para o processo seletivo da Aztec Soluções Digitais
+Desafio de desenvolvimento de API realizado para o processo seletivo da Aztec Soluções Digitais. Desenvolvido utilizando Laravel Framework
 
 ### Atenção
 A **.env.example** deste projeto foi feita tendo em mente o uso do laradock que será descrito abaixo. Caso deseje executar esse projeto sem a utilização do laradock, terá que atualizar a sua **.env**.
@@ -57,3 +57,15 @@ Dentro deste repositório estão disponíveis um arquivo JSON com a [coleção P
 ### Autenticação
 
 Para executar qualquer rota é obrigatório incluir nas Headers da requisição o Bearer Token que pode ser gerado pela própria autenticação (**Não se preocupe**, a coleção do Postman atualiza a variável com o token automaticamente toda vez que disparar uma nova requisição para a rota de gerar Token)
+
+### Testes
+
+Para executar os testes automáticos desenvolvidos, siga o passo a passo abaixo:
+
+Dentro da pasta /laradock, com os contâiners subidos (Se tiver dúvida, rever processo de Instalação citado acima), execute o comando a seguir para acessar o contâiner da aplicação:
+
+`docker compose exec workspace bash` ou `docker-compose exec workspace bash`
+
+Dentro do contâiner, execute os testes
+
+`php artisan test`
